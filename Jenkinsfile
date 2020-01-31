@@ -22,8 +22,7 @@ node
 	{
 		withSonarQubeEnv('sonar') 
 		{
-		    def mvn = tool 'mvn'
-			sh 'mvn clean package sonar:sonar'
+                        sh 'mvn sonar:sonar'
 			sh 'sleep 10'
 		} // SonarQube taskId is automatically attached to the pipeline context
 	}
