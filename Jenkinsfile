@@ -22,7 +22,7 @@ node
 	{
 		withSonarQubeEnv('sonar') 
 		{
-                        sh 'mvn sonar:sonar'
+                        sh '${mvnHome}/bin/mvn sonar:sonar'
 			sh 'sleep 10'
 		} // SonarQube taskId is automatically attached to the pipeline context
 	}
