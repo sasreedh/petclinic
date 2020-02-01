@@ -28,7 +28,7 @@ node
 	}
           stage('deploy to Dev') {
 		  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-		  sh "curl -u $USERNAME:$PASSWORD -T /var/lib/jenkins/workspace/Petclinic/target/petclinic.war 'http://localhost:8081/manager/text/deploy?path=/PetclinicDev&update=true'"
+		  sh "curl -u $USERNAME:$PASSWORD -T /var/lib/jenkins/workspace/Petclinic/target/petclinic.war 'http://localhost:8081/manager/text/deploy?path=/Petclinic&update=true'"
 		  }
 		  echo "Deploy successful"
 	  }	
