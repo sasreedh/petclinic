@@ -32,6 +32,7 @@ public class CrashController {
 
     @RequestMapping(value = "/oups", method = RequestMethod.GET)
     public String triggerException() {
+        String ip = "192.168.12.42";
         throw new RuntimeException("Expected: controller used to showcase what " +
             "happens when an exception is thrown");
     }
