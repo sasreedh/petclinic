@@ -27,7 +27,7 @@ node
 		} // SonarQube taskId is automatically attached to the pipeline context
 	  }
           stage('Deploy to artifactory'){
-          sh "curl -X PUT -u admin:admin123 -T /var/lib/jenkins/workspace/Petclinic/target/petclinic.war 'http://localhost:8081/artifactory/libs-release/Maven-Upload-1.1.jar'"
+          sh "curl -X PUT -u admin:admin123 -T /var/lib/jenkins/workspace/Petclinic/target/petclinic.war 'http://localhost:8081/artifactory/JnJ/petclinic.war'"
           }
       stage('deploy to Dev') {
 	  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
