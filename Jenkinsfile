@@ -33,6 +33,6 @@ node
 	  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 	  sh "curl -u $USERNAME:$PASSWORD -T /var/lib/jenkins/workspace/Petclinic/target/petclinic-1.${BUILD_NUMBER}.war 'http://localhost:8082/manager/text/deploy?path=/Petclinic&update=true'"
 	  }
-		  echo "Deployment successful"
+		  echo "Deployment-successful"
 	  }
   }
