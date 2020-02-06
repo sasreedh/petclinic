@@ -5,7 +5,7 @@ node
 	  stage ('workspace clean') {
 	  cleanWs()	  
 	  }
-	  stage('GitSCM')
+	  stage('Code Checkout')
 	  {
 		  git url: 'https://github.com/knagu/petclinic.git'
 	  }	  
