@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CrashController {
 
     @RequestMapping(value = "/oups", method = RequestMethod.GET)
-    public String triggerException() {
+    public String triggerException() {        
         throw new RuntimeException("Expected: controller used to showcase what " +
             "happens when an exception is thrown");
     }
