@@ -38,8 +38,9 @@ node
 		  echo "Deployment-successful"
 	  }
           stage('slack notification')
-          {
-                  slackSend channel: '#chatops', message: "Job Ended Job Name:${JOB_NAME} Build Number:${BUILD_NUMBER} Build URL:(<${BUILD_URL}|Open>)"
+          {                 
+                  slackSend channel: '#chatops', message: "Success Job Name:${JOB_NAME} Build Number:${BUILD_NUMBER} Build URL:(<${BUILD_URL}|Open>)"
+               
           }
           
   }
