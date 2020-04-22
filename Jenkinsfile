@@ -2,8 +2,10 @@ node
   {
 	  def mvnHome = tool 'maven'
 	  
+          
 	  stage ('workspace clean') {
-	  cleanWs()	  
+	  cleanWs()	         
+          slackSend channel: '#chatops', message: "started Job Name:${JOB_NAME} Build Number:${BUILD_NUMBER} Build URL:(<${BUILD_URL}|Open>)"       
 	  }
 	  stage('Code Checkout')
 	  {
@@ -35,7 +37,5 @@ node
 	  }
 		  echo "Deployment-successful"
 	  }
-          stage('slack notification'){
-          slackSend channel: '#chatops', message: "started ${JOB_NAME} ${BUILD_NUMBER} (<${BUILD_URL}|Open>)"
-          }
+          
   }
