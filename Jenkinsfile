@@ -26,9 +26,9 @@ node
 			sh "sleep 10"
 		} // SonarQube taskId is automatically attached to the pipeline context
 	  }
-          stage('Deploy to artifactory'){
-          sh "curl -X PUT -u admin:admin123 -T /var/lib/jenkins/workspace/Petclinic/target/petclinic-1.${BUILD_NUMBER}.war 'http://localhost:8081/artifactory/JnJ/petclinic-1.${BUILD_NUMBER}.war'"
-          }
+          //stage('Deploy to artifactory'){
+          //sh "curl -X PUT -u admin:admin123 -T /var/lib/jenkins/workspace/Petclinic/target/petclinic-1.${BUILD_NUMBER}.war 'http://localhost:8081/artifactory/JnJ/petclinic-1.${BUILD_NUMBER}.war'"
+          //}
           stage('deploy to Dev') {
 	  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 	  sh "curl -u $USERNAME:$PASSWORD -T /var/lib/jenkins/workspace/Petclinic/target/petclinic-1.${BUILD_NUMBER}.war 'http://localhost:8082/manager/text/deploy?path=/Petclinic&update=true'"
