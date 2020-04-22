@@ -5,7 +5,7 @@ node
           
 	  stage ('workspace clean') {
 	  cleanWs()	         
-          slackSend channel: '#chatops', message: "started Job Name:${JOB_NAME} Build Number:${BUILD_NUMBER} Build URL:(<${BUILD_URL}|Open>)"       
+                 
 	  }
 	  stage('Code Checkout')
 	  {
@@ -37,5 +37,9 @@ node
 	  }
 		  echo "Deployment-successful"
 	  }
+          stage('slack notification')
+          {
+                  slackSend channel: '#chatops', message: "Job Ended Job Name:${JOB_NAME} Build Number:${BUILD_NUMBER} Build URL:(<${BUILD_URL}|Open>)"
+          }
           
   }
