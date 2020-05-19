@@ -3,10 +3,10 @@ FROM tomcat:8.0
 MAINTAINER knagu
 
 #removing tomcat-users file in the container
-RUN rm -rf /usr/local/tomcat/conf/tomcat-users.xml
+#RUN rm -rf /usr/local/tomcat/conf/tomcat-users.xml
 
 #copying tomcat-users file from host to container
-COPY tomcat-users.xml /usr/local/tomcat/conf/
+#COPY tomcat-users.xml /usr/local/tomcat/conf/
 
 #copying war file file from host to container
 COPY petclinic.war /usr/local/tomcat/webapps/
