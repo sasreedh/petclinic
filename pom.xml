@@ -29,7 +29,6 @@
 
 
         <!-- Java EE / Java SE dependencies -->
-        <!-- <tomcat.version>7.0.59</tomcat.version> -->
         <tomcat.version>7.0.59</tomcat.version>
 
         <!-- Test -->
