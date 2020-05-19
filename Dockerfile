@@ -9,7 +9,7 @@ MAINTAINER knagu
 #COPY tomcat-users.xml /usr/local/tomcat/conf/
 
 #copying war file file from host to container
-COPY ./target/petclinic-1.5.war /usr/local/tomcat/webapps/
+COPY ./target/petclinic-*.war /usr/local/tomcat/webapps/
 
 #exposing 8080 port in container
 EXPOSE 8080
