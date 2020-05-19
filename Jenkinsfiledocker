@@ -28,12 +28,12 @@ node
 			sh "sleep 10"
 		} // SonarQube taskId is automatically attached to the pipeline context
 	  }
-     stage('Deploy docker image to Nexus'){
-         sh label: '', script: '''docker build -t 10.0.1.163:8082/petclinictest:01 .
-         docker login --username admin --password admin123 10.0.1.163:8082
-         docker build -t 10.0.1.163:8082/petclinictest:latest .
-         docker push 10.0.1.163:8082/petclinictest:01
-         docker push 10.0.1.163:8082/petclinictest:latest'''
+         stage('Deploy docker image to Nexus'){
+                sh label: '', script: '''docker build -t 10.0.1.163:8082/petclinictest:01 .
+                docker login --username admin --password admin123 10.0.1.163:8082
+                docker build -t 10.0.1.163:8082/petclinictest:latest .
+                docker push 10.0.1.163:8082/petclinictest:01
+                docker push 10.0.1.163:8082/petclinictest:latest'''
      }
           
   }
