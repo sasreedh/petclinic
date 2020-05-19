@@ -24,7 +24,7 @@ node
 	  {
                 sh "${mvnHome}/bin/mvn sonar:sonar"
 		
-		} // SonarQube taskId is automatically attached to the pipeline context
+		 // SonarQube taskId is automatically attached to the pipeline context
 	  }
          stage('Deploy docker image to Nexus'){
                 sh label: '', script: '''docker build -t 10.0.1.163:8082/petclinictest:01 .
