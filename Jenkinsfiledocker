@@ -22,10 +22,8 @@ node
 	  }
           stage('Sonar Analysis')
 	  {
-		withSonarQubeEnv('sonar') 
-		{
                 sh "${mvnHome}/bin/mvn sonar:sonar"
-			sh "sleep 10"
+		
 		} // SonarQube taskId is automatically attached to the pipeline context
 	  }
          stage('Deploy docker image to Nexus'){
