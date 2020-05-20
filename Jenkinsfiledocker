@@ -24,7 +24,7 @@ node
 	  {
                 sh "${mvnHome}/bin/mvn sonar:sonar"
 		
-		 // SonarQube taskId is automatically attached to the pipeline context
+		
 	  }
          stage('Deploy docker image to Nexus'){
           withCredentials( [usernamePassword( credentialsId: 'nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
