@@ -1,4 +1,4 @@
-FROM tomcat:8.0
+FROM tomcat:8.0.51-jre8-alpine
 
 MAINTAINER knagu
 
