@@ -16,10 +16,10 @@ node
 	  sh "${mvnHome}/bin/mvn -B clean install package"
 	  echo "Build Successful"
 	  }
-          stage('Test') {
-	  sh "${mvnHome}/bin/mvn -B test"
-	  echo "Tests successful"
-	  }
+          //stage('Test') {
+	  //sh "${mvnHome}/bin/mvn -B test"
+	  //echo "Tests successful"
+	  //}
           //stage('Sonar Analysis')
 	  //{
             //    sh "${mvnHome}/bin/mvn sonar:sonar"
@@ -34,11 +34,11 @@ node
                 //docker push 10.0.1.163:8082/petclinic:$BUILD_NUMBER
                 //docker push 10.0.1.163:8082/petclinic:latest'''
                 
-                sh label: '', script: '''docker build -t localhost:8082/petclinic:$BUILD_NUMBER .
-                docker login --username $USERNAME --password $PASSWORD localhost:8082
-                docker build -t loclhost:8082/petclinic:latest .
-                docker push localhost:8082/petclinic:$BUILD_NUMBER
-                docker push localhost:8082/petclinic:latest'''
+                sh label: '', script: '''docker build -t 10.0.1.179:8082/petclinic:$BUILD_NUMBER .
+                docker login --username $USERNAME --password $PASSWORD 10.0.1.179:8082
+                docker build -t 10.0.1.179:8082/petclinic:latest .
+                docker push 10.0.1.179:8082/petclinic:$BUILD_NUMBER
+                docker push 10.0.1.179:8082/petclinic:latest'''
           }
      }
           
