@@ -35,7 +35,7 @@ node
                 //docker push 10.0.1.163:8082/petclinic:latest'''
                 
                 sh label: '', script: '''docker build -t localhost:8082/petclinic:$BUILD_NUMBER .
-                docker login --username $USERNAME --password $PASSWORD acef7a9ccabe111eaaa5a06bdecc0dbc-1289066259.us-west-2.elb.amazonaws.com:8082
+                docker login --username $USERNAME --password $PASSWORD localhost:8082
                 docker build -t loclhost:8082/petclinic:latest .
                 docker push localhost:8082/petclinic:$BUILD_NUMBER
                 docker push localhost:8082/petclinic:latest'''
