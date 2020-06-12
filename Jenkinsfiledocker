@@ -34,11 +34,13 @@ node
                 //docker push 10.0.1.163:8082/petclinic:$BUILD_NUMBER
                 //docker push 10.0.1.163:8082/petclinic:latest'''
                 
-                sh label: '', script: '''docker build -t acef7a9ccabe111eaaa5a06bdecc0dbc-1289066259.us-west-2.elb.amazonaws.com:8082/petclinic:$BUILD_NUMBER .
-                docker login --username $USERNAME --password $PASSWORD acef7a9ccabe111eaaa5a06bdecc0dbc-1289066259.us-west-2.elb.amazonaws.com:8082
-                docker build -t acef7a9ccabe111eaaa5a06bdecc0dbc-1289066259.us-west-2.elb.amazonaws.com:8082/petclinic:latest .
-                docker push acef7a9ccabe111eaaa5a06bdecc0dbc-1289066259.us-west-2.elb.amazonaws.com:8082/petclinic:$BUILD_NUMBER
-                docker push acef7a9ccabe111eaaa5a06bdecc0dbc-1289066259.us-west-2.elb.amazonaws.com:8082/petclinic:latest'''
+                sh label: '', script: '''
+                ip=`curl -s http://169.254.169.254/latest/meta-data/local-ipv4`
+                docker build -t $ip:8082/petclinic:$BUILD_NUMBER .
+                docker login --username $USERNAME --password $PASSWORD $ip:8082
+                docker build -t $ip:8082/petclinic:latest .
+                docker push $ip:8082/petclinic:$BUILD_NUMBER
+                docker push $ip:8082/petclinic:latest'''
           }
      }
           
