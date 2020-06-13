@@ -28,20 +28,14 @@ node
 	  //}
          stage('Deploy docker image to Nexus'){
           withCredentials( [usernamePassword( credentialsId: 'nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-                //sh label: '', script: '''docker build -t 10.0.1.163:8082/petclinic:$BUILD_NUMBER .
-                //docker login --username $USERNAME --password $PASSWORD 10.0.1.163:8082
-                //docker build -t 10.0.1.163:8082/petclinic:latest .
-                //docker push 10.0.1.163:8082/petclinic:$BUILD_NUMBER
-                //docker push 10.0.1.163:8082/petclinic:latest'''
-                
+                               
                 sh label: '', script: '''
                 ip=`curl -s http://169.254.169.254/latest/meta-data/local-ipv4`
-                curl $ip:31137
-                sudo docker build -t $ip:31313/petclinic:$BUILD_NUMBER .
-                sudo docker login --username $USERNAME --password $PASSWORD $ip:31313
-                sudo docker build -t $ip:31313/petclinic:latest .
-                sudo docker push $ip:31313/petclinic:$BUILD_NUMBER
-                sudo docker push $ip:31313/petclinic:latest'''
+                docker build -t $ip:31313/petclinic:$BUILD_NUMBER .
+                docker login --username $USERNAME --password $PASSWORD $ip:31313
+                docker build -t $ip:31313/petclinic:latest .
+                docker push $ip:31313/petclinic:$BUILD_NUMBER
+                docker push $ip:31313/petclinic:latest'''
           }
      }
           
