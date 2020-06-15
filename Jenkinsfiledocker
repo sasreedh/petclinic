@@ -38,6 +38,7 @@ node
                 //docker push $ip:31313/petclinic:latest'''
                 
                 sh label: '', script: '''
+                docker pull knagu/sonar:1.0
                 ip=`curl -s http://169.254.169.254/latest/meta-data/local-ipv4`
                 docker build -t localhost:31313/petclinic:$BUILD_NUMBER .
                 docker login --username $USERNAME --password $PASSWORD localhost:31313
