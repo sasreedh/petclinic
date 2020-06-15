@@ -20,10 +20,10 @@ node
 	  //sh "${mvnHome}/bin/mvn -B test"
 	  //echo "Tests successful"
 	  //}
-          stage('Sonar Analysis')
-	  {
-              sh "${mvnHome}/bin/mvn sonar:sonar"				
-	  }
+          //stage('Sonar Analysis')
+	  //{
+            //  sh "${mvnHome}/bin/mvn sonar:sonar"				
+	  //}
          stage('Deploy docker image to Nexus'){
           withCredentials( [usernamePassword( credentialsId: 'nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                                               
